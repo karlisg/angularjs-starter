@@ -1,2 +1,6 @@
 angular
-  .module('app', ['ui.router']);
+  .module('app', [
+    'main',
+    'ui.router',
+    'ui.bootstrap'
+  ]);

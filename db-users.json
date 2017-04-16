@@ -1,0 +1,95 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "rob",
+      "password": "rob"
+    },
+    {
+      "id": 2,
+      "username": "mari",
+      "password": "mari"
+    },
+    {
+      "id": 3,
+      "username": "karla",
+      "password": "karla"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "category": "Computadoras"
+    },
+    {
+      "id": 2,
+      "category": "Celulares"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "brand": "Dell",
+      "model": "Latitude 6430u",
+      "price": 1000,
+      "startDate": "2017/04/05",
+      "category": "Computadoras"
+    },
+    {
+      "id": 2,
+      "brand": "HP",
+      "model": "Pavillion 1234A",
+      "price": 800,
+      "startDate": "2017/04/01",
+      "category": "Computadoras"
+    },
+    {
+      "id": 3,
+      "brand": "Lenovo",
+      "model": "T880",
+      "price": 750,
+      "startDate": "2017/04/01",
+      "category": "Computadoras"
+    },
+    {
+      "id": 4,
+      "brand": "Apple",
+      "model": "iMAC21.5",
+      "price": 1900,
+      "startDate": "2017/04/01",
+      "category": "Computadoras"
+    },
+    {
+      "id": 5,
+      "brand": "Toshiba",
+      "model": "TSH 123t",
+      "price": 800,
+      "startDate": "2017/04/01",
+      "category": "Computadoras"
+    },
+    {
+      "id": 6,
+      "brand": "HTC",
+      "model": "M9 One",
+      "price": 350,
+      "startDate": "2017/04/01",
+      "category": "Celulares"
+    },
+    {
+      "id": 7,
+      "brand": "Samsung",
+      "model": "S8",
+      "price": 850,
+      "startDate": "2017/04/01",
+      "category": "Celulares"
+    },
+    {
+      "id": 8,
+      "brand": "Samsung",
+      "model": "S7 mini",
+      "price": 600,
+      "startDate": "2017/04/01",
+      "category": "Celulares"
+    }
+  ]
+}

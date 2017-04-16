@@ -1,3 +1,50 @@
 body {
   background-color: lightgrey;
 }
+
+.header{
+  display: flex;
+  background-color: black;
+  align-items: center;
+}
+
+.header-title{
+  color: white;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.header-date{
+  text-align: right;
+  color: white;
+  margin: 10px;
+}
+
+.footer{
+  font-size:  15px;
+  background-color: darkblue;
+  text-align: center;
+  color: white;
+}
+
+.student{
+  width: 150px;
+  height: 150px;
+  border: 1px solid darkgray;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.student-title{
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.student-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
