@@ -1,4 +1,4 @@
-function HomeController(UserService, ProductService, $rootScope, $uibModal, $location) {
+function HomeController(UserService, ProductService, $rootScope, $state, $uibModal) {
     console.log('Running Home Controller');
     var vm = this;
 
@@ -18,8 +18,8 @@ function HomeController(UserService, ProductService, $rootScope, $uibModal, $loc
             loadAllProducts();
         }
         else {
-            
-            $location.path("/login");
+
+            $state.go('login');
         }
     }
 
@@ -60,6 +60,12 @@ function HomeController(UserService, ProductService, $rootScope, $uibModal, $loc
         }).finally(function () {
             console.log('getProducts has finished!')
         });
+    }
+
+    vm.setCategory = function (_category) {
+
+        console.log('categorias:', _category);
+        vm.category = _category;
     }
 
     vm.edit = function (_product) {

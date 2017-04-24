@@ -1,6 +1,9 @@
 <h1>Hola {{$ctrl.user[0].username}}!</h1>
 <br>
-
+<div>
+    <a href="" ng-click="$ctrl.setCategory('Computadoras')">Computadoras</a>
+    <a href="" ng-click="$ctrl.setCategory('Celulares')">Celulares</a>
+</div>
 <table style="width:100%">
     <tr>
         <th>Id</th>
@@ -9,7 +12,7 @@
         <th>Precio</th>
         <th>Opciones</th>
     </tr>
-    <tr ng-repeat="pr in $ctrl.products">
+    <tr ng-repeat="pr in $ctrl.products  | filter : {category:$ctrl.category}: true"}>
         <td>{{pr.id}}</td>
         <td>{{pr.brand}}</td>
         <td>{{pr.model}}</td>

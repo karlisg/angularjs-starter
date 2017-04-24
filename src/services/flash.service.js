@@ -5,8 +5,8 @@ angular
 function FlashService($log, $rootScope) {
 
     return {
-        success: success,
-        error: error
+        success: Success,
+        error: Error
     };
 
     initService();
@@ -29,7 +29,7 @@ function FlashService($log, $rootScope) {
         }
     }
 
-    function success(message, keepAfterLocationChange) {
+    function Success(message, keepAfterLocationChange) {
         $rootScope.flash = {
             message: message,
             type: 'success',
@@ -37,7 +37,7 @@ function FlashService($log, $rootScope) {
         };
     }
 
-    function error(message, keepAfterLocationChange) {
+    function Error(message, keepAfterLocationChange) {
          $log.info(message);
         $rootScope.flash = {
             message: message,

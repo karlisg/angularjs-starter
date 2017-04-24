@@ -4,7 +4,13 @@ angular
 
 function ProductService($q, $log, $resource) {
 
-    var resource = $resource('http://localhost:9000/products');
+    var resource = $resource('http://localhost:9000/products/:id', {
+        id: '@id'
+    }, {
+            update: {
+                method: 'PUT'
+            }
+        });
 
     return {
         getProducts: getProducts,
@@ -41,16 +47,12 @@ function ProductService($q, $log, $resource) {
     }
 
     function saveProduct(product) {
-        var resource = $resource('http://localhost:9000/products/:id', {
-            id: product.id
-        }, {
-                update: {
-                    method: 'PUT'
-                }
-            });
+
         var future = $q.defer();
 
-        resource.update(product).$promise.then(function (result) {
+        resource.update({
+            id: product.id
+        }, product).$promise.then(function (result) {
             future.resolve(cleanResponse(result));
         }).catch(function (error) {
             future.reject(error);
@@ -60,16 +62,10 @@ function ProductService($q, $log, $resource) {
     }
 
     function deleteProduct(_id) {
-        var resource = $resource('http://localhost:9000/products/:id', {
-            id: _id
-        }, {
-                delete: {
-                    method: 'delete'
-                }
-            });
+
         var future = $q.defer();
 
-        resource.delete().$promise.then(function (result) {
+        resource.delete({ id: _id }).$promise.then(function (result) {
             future.resolve(cleanResponse(result));
         }).catch(function (error) {
             future.reject(error);

@@ -1,2 +1,2 @@
 angular
-    .module('main', ['header', 'login', 'footer','ngResource']);
+    .module('main', ['header', 'login', 'footer', 'register', 'ngResource']);

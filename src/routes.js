@@ -11,7 +11,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('app', {
       url: '/',
       component: 'main',
-       redirectTo:'login'
+      redirectTo: 'login'
     })
     .state('login', {
       parent: 'app',   // relaciona list con app, para que siga mostranto header y footer
@@ -25,8 +25,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       // definir subrutas por debajo del main
       component: 'home'  //nombre del componente no HTML
     })
-    
-    ;
-
-    
+    .state('register', {
+      parent: 'app',   // relaciona list con app, para que siga mostranto header y footer
+      url: 'register',
+      // definir subrutas por debajo del main
+      component: 'register'  //nombre del componente no HTML
+    });
 }
