@@ -2,43 +2,18 @@
   "users": [
     {
       "id": 1,
-      "username": "rob",
-      "password": "rob"
+      "username": "roberto.perez@gmail.com",
+      "password": "roberto"
     },
     {
       "id": 2,
-      "username": "mari",
-      "password": "mari"
+      "username": "maria.lopez@gmail.com",
+      "password": "maria"
     },
     {
       "id": 3,
-      "username": "karla",
+      "username": "karla.saavedra@gmail.com",
       "password": "karla"
-    },
-    {
-      "id": 4,
-      "username": "qw",
-      "password": "qw"
-    },
-    {
-      "username": "re",
-      "password": "wertyu",
-      "id": 5
-    },
-    {
-      "username": "tt",
-      "password": "tt",
-      "id": 6
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 7
-    },
-    {
-      "username": "sa",
-      "password": "ssa",
-      "id": 8
     }
   ],
   "categories": [
@@ -53,8 +28,16 @@
   ],
   "products": [
     {
+      "id": 1,
+      "brand": "Dell",
+      "model": "Latitude 6430u",
+      "price": 1000,
+      "startDate": "2017/04/05",
+      "category": "Computadoras"
+    },
+    {
       "id": 2,
-      "brand": "HP2",
+      "brand": "HP",
       "model": "Pavillion 1234A",
       "price": 800,
       "startDate": "2017/04/01",
@@ -80,7 +63,7 @@
       "id": 5,
       "brand": "Toshiba",
       "model": "TSH 123t",
-      "price": 801,
+      "price": 800,
       "startDate": "2017/04/01",
       "category": "Computadoras"
     },

@@ -24,6 +24,7 @@ function HomeController(UserService, ProductService, $rootScope, $state, $uibMod
     }
 
     function loadCurrentUser() {
+        
         console.log('currentuser: ', $rootScope.globals.currentUser.username);
         var promise = UserService.getByUsername($rootScope.globals.currentUser.username);
         promise.then(function (result) {
@@ -62,6 +63,10 @@ function HomeController(UserService, ProductService, $rootScope, $state, $uibMod
         });
     }
 
+    vm.logout =function() {
+         $state.go('login');
+    }
+
     vm.setCategory = function (_category) {
 
         console.log('categorias:', _category);
@@ -71,7 +76,7 @@ function HomeController(UserService, ProductService, $rootScope, $state, $uibMod
     vm.edit = function (_product) {
         var modalInstance = $uibModal.open({
             controller: ProductModalCtrl,
-            templateUrl: 'myModalContent.html',
+            templateUrl: 'main/home/add-edit-product.html',
             controllerAs: '$ctrl',
             resolve: {
                 product: function () {
@@ -82,11 +87,20 @@ function HomeController(UserService, ProductService, $rootScope, $state, $uibMod
     }
 
     vm.delete = function (_id) {
-        var txt;
-        var r = confirm("Esta seguro que desea eliminar?");
-        if (r == true) {
-            var promise = ProductService.deleteProduct(_id);
-            promise.then(function (result) {
+        var confirmModalInstance = $uibModal.open({
+            controller: ConfirmProductModalCtrl,
+            templateUrl: 'main/home/confirm-product.html',
+            controllerAs: '$ctrl',
+            resolve: {
+                id: function () {
+                    return _id;
+                }
+            }
+        });
+
+        confirmModalInstance.result.then(function (response) {
+            console.log('modal repsonse:', response);
+            if (response === 'delete') {
                 for (var i = 0; i < vm.products.length; i++) {
                     var p = vm.products[i];
                     if (p.id === _id) {
@@ -94,12 +108,9 @@ function HomeController(UserService, ProductService, $rootScope, $state, $uibMod
                         break;
                     }
                 }
-            });
-        }
-        else {
-            txt = "Cancelar";
-        }
-    }
+            }
+        });
+    };
 }
 
 function ProductModalCtrl($uibModalInstance, ProductService, product) {
@@ -111,7 +122,7 @@ function ProductModalCtrl($uibModalInstance, ProductService, product) {
     vm.product.date = new Date(vm.product.startDate);
 
     vm.cancel = function () {
-        $uibModalInstance.dismiss('cancel');
+        $uibModalInstance.close('close');
     }
 
     vm.saveChanges = function () {
@@ -136,12 +147,38 @@ function ProductModalCtrl($uibModalInstance, ProductService, product) {
     }
 }
 
+function ConfirmProductModalCtrl($uibModalInstance, ProductService, id) {
+    var vm = this;
+
+    vm.cancel = function () {
+        $uibModalInstance.close('close');
+    }
+
+    vm.ok = function () {
+        var promise = ProductService.deleteProduct(id);
+        promise.then(function (result) {
+            console.log('Delete Product', result);
+
+        });
+        $uibModalInstance.close('delete');
+    }
+
+    vm.dtpVisibility = {
+        opened: false
+    };
+    vm.dtpStatusSwitch = function () {
+        vm.dtpVisibility.opened = true;
+    }
+}
+
 var component = {
     templateUrl: 'main/home/home.html',
     controller: HomeController
-}
+};
 
 angular
     .module('main')
     .component('home', component);
+
+
 

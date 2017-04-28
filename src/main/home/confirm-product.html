@@ -1,0 +1,32 @@
+<script type="text/ng-template" id = "main/home/confirm-product.html">
+    <!-- Modal Header -->
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$ctrl.cancel()">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+            Eliminar
+        </h4>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="modal-body">
+
+        <form role="form">
+            <div class="form-group">
+                <label>Esta seguro que desea eliminar el Producto?</label>               
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">
+            Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.ok()">
+            Aceptar
+        </button>
+    </div>
+</script>

@@ -1,4 +1,5 @@
-<h1>Hola {{$ctrl.user[0].username}}!</h1>
+<p><h1>Hola {{$ctrl.user[0].username}}!</h1>
+<a href="" ng-click="$ctrl.logout()">Salir</a></p>
 <br>
 <div>
     <a href="" ng-click="$ctrl.setCategory('Computadoras')">Computadoras</a>
@@ -12,7 +13,7 @@
         <th>Precio</th>
         <th>Opciones</th>
     </tr>
-    <tr ng-repeat="pr in $ctrl.products  | filter : {category:$ctrl.category}: true"}>
+    <tr ng-repeat="pr in $ctrl.products  | filter : {category:$ctrl.category}: true">
         <td>{{pr.id}}</td>
         <td>{{pr.brand}}</td>
         <td>{{pr.model}}</td>
@@ -21,58 +22,5 @@
     </tr>
 </table>
 
-<br />
-
-<script type="text/ng-template" id="myModalContent.html">
-    <!-- Modal Header -->
-    <div class="modal-header">
-        <button type="button" class="close" ng-click="$ctrl.cancel()">
-                <span aria-hidden="true">&times;</span>
-                <span class="sr-only">Close</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">
-            Edicion
-        </h4>
-    </div>
-
-    <!-- Modal Body -->
-    <div class="modal-body">
-
-        <form role="form">
-            <div class="form-group">
-                <label for="brandInput">Marca</label>
-                <input type="text" class="form-control" id="brandInput" placeholder="Ingrese un marca" ng-model="$ctrl.product.brand" />
-            </div>
-            <div class="form-group">
-                <label for="modelInput">Modelo</label>
-                <input type="text" class="form-control" id="modelInput" placeholder="Ingrese un modelo" ng-model="$ctrl.product.model" />
-            </div>
-            <div class="form-group">
-                <label for="priceInput">Precio</label>
-                <input type="number" class="form-control" id="priceInput" ng-model="$ctrl.product.price" />
-            </div>
-            <div><label for="startDateInput">Fecha de Ingreso</label>
-                <p class="input-group">
-                    
-                    <input type="text" class="form-control" id="startDateInput" uib-datepicker-popup is-open="$ctrl.dtpVisibility.opened"  ng-model="$ctrl.product.date" />
-                    <span class="input-group-btn">
-            <button type="button" class="btn btn-default" 
-            ng-click="$ctrl.dtpStatusSwitch()"><i class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-                </p>
-            </div>
-        </form>
-
-
-    </div>
-
-    <!-- Modal Footer -->
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">
-                    Close
-        </button>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.saveChanges()">
-            Save changes
-        </button>
-    </div>
-</script>
+<div ng-include="'main/home/add-edit-product.html'"></div>
+<div ng-include="'main/home/confirm-product.html'"></div>
